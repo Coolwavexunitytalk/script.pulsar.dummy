@@ -10,9 +10,7 @@ from pulsar import provider
 # Raw search
 # query is always a string
 def search(query):
-    resp = provider.GET("http://foo.bar/search?q=%s" % provider.quote_plus(query), params={
-        "q": query,
-    })
+    resp = provider.GET("https://kickass.to/usearch/%s%20" % provider.quote_plus(query))
     return provider.extract_magnets(resp.data)
 # To parse JSON you can do:
 #     items = resp.json()
